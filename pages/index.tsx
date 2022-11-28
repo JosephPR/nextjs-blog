@@ -24,7 +24,7 @@ export default function Home({
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>Hello, I built this blog using the Next.js tutorial on their home page and implemented typescript. </p>
+        <p>Hello, I built this blog using the Next.js tutorial on their home page and implemented typescript, deployed with Vercel. </p>
       
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.paddingBottom}`}>
