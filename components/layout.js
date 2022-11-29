@@ -7,8 +7,16 @@ import Link from 'next/link';
 const name = 'Joseph';
 export const siteTitle = 'Next Blog';
 
+
 export default function Layout({ children, home }) {
   return (
+    <>
+     <nav className={styles.nav}>
+     <Link className={styles.navItem}  href="/">Blog</Link>
+
+    <Link  className={styles.navItem} href='/drinks'>Random Drink</Link>
+
+    </nav>
     <div className={styles.container}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
@@ -25,6 +33,7 @@ export default function Layout({ children, home }) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
+     
       <header className={styles.header}>
         {home ? (
           <>
@@ -43,7 +52,7 @@ export default function Layout({ children, home }) {
             <Link href="/">
               <Image
                 priority
-                src="/images/profile-pic.jpg"
+                src="/images/christmas.jpg"
                 className={utilStyles.borderCircle}
                 height={108}
                 width={108}
@@ -65,5 +74,7 @@ export default function Layout({ children, home }) {
         </div>
       )}
     </div>
+    </>
+   
   );
 }

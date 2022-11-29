@@ -7,6 +7,8 @@ import { getSortedPostsData } from '../lib/posts'
 import Link from 'next/link'
 import Date from '../components/date'
 import { GetStaticProps } from 'next'
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
 
 export default function Home({
   allPostsData
@@ -22,27 +24,33 @@ export default function Home({
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
-      </Head>
+      </Head>   
+
+
+
       <section className={utilStyles.headingMd}>
         <p>Hello, I built this blog using the Next.js tutorial on their home page and implemented typescript, deployed with Vercel. </p>
       
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.paddingBottom}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title, image }) => (
-            <li className={`${utilStyles.listItem} ${utilStyles.paddingBottom} ${utilStyles.borderBottom}`}key={id}>
-              <Link  className={utilStyles.headingLg} href={`/posts/${id}`}>{title}</Link>
-              <br />
-              <small className={utilStyles.lightText}>
-                <Date dateString={date} />
-              </small>
-              <br />
-              <img src={image} />
-            </li>
-          ))}
-        </ul>
+
+        <Carousel autoPlay interval={5000} autoFocus infiniteLoop>
+        {allPostsData.map(({ id, date, title, image }) => (
+      
+                  <div key={id}>
+                      <Link  className={utilStyles.headingLg} href={`/posts/${id}`}>{title}</Link><br/>
+                      <small className={utilStyles.lightText}>
+                        <Date dateString={date} />
+                      </small>
+                      <img className={utilStyles.blogImage} src={image} />
+  
+                  </div>
+              
+                      ))}
+              </Carousel>
       </section>
+
     </Layout>
   )
 }

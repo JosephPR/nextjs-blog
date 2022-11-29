@@ -13,3 +13,14 @@
   .backToHome {
     margin: 3rem 0 0;
   }
+  .nav
+  {
+    display:flex;
+    justify-content: space-around;
+    width:100%;
+    padding:5rem;
+    background-color: rgb(16, 45, 139);
+  }
+   .navItem{
+    color:#fff;
+  }
